@@ -14,7 +14,7 @@ for host in range(80,100):
         try:
             # open socket
             socket.connect(( str(sys.argv[1] + '.' + str(host)), int(port) ))
-            print(f'Connecting to {str(sys.argv[1])}s on the port {str(port)}')
+            print('Connecting to' + str(sys.argv[1]) + 'on the port' + str(port))
             # segs until timeout
             socket.settimeout(1)
             # getting the banner from the server
@@ -23,9 +23,9 @@ for host in range(80,100):
             for vuln in banners:
                 # check if banner matches the vulnerable banners on the banners.txt file
                 if banner.strip() in vuln.strip():
-                    print(f'We found it {banner}')
+                    print('We found it' + banner)
                     print('Host: ' + str(sys.argv[1]) + '.' + str(host))
-                    print(f'Port: {str(port)}')
+                    print('Port: ' + str(port))
         except:
             print('Error connecting to: ' + str(sys.argv[1] + '.' + str(host)) + ':' + str(port))
 
